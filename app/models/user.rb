@@ -9,6 +9,11 @@
 #
 
 class User < ApplicationRecord
+  def username
+    my_id = self.id
+    matching_name = User.where({ :id => my_id }).at(0)
+    return matching_name
+  end
   
   def comments
     my_id = self.id
