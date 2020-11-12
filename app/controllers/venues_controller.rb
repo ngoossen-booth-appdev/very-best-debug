@@ -2,7 +2,7 @@ class VenuesController < ApplicationController
 
   def index
     matching_venues = Venue.all
-    venues = matching_venues.order(:created_at)
+    @venues = matching_venues.order(:created_at=>:desc)
 
     render({ :template => "venue_templates/venue_list.html.erb" })
   end
